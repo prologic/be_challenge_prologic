@@ -1,6 +1,6 @@
 # Back End Developer Exercise
 
-The aim of this exercise is to simulate real working conditions to provide context for a code/design review session. The follow up review session will focus on your reasons for database/API design and pseudo-code/code implementation. As such it isnâ€™t necessary to build a complete implementation, however having some runnable code is recommended (preferably in Python).
+The aim of this exercise is to simulate real working conditions to provide context for a code/design review session. The follow up review session will focus on your reasons for database/API design and pseudo-code/code implementation. As such it isn’t necessary to build a complete implementation, however having some runnable code is recommended (preferably in Python).
 
 The suggested time to spend on this exercise is 2 hours.
 
@@ -10,11 +10,12 @@ For this challenge, we are looking for you to create the backend for a a simple 
 
 We're providing you with two mock data csv files which are typical of the type of data collected:
 
-Employees: The people who are being rostered
-Shifts: These are the bits of work assigned to employees.
+- Employees: The people who are being rostered
+- Shifts: These are the bits of work assigned to employees.
 
 
 The amount of time you spend on this exercise is up to you, and there are several activities you could consider depending on your strengths:
+
 - Develop some questions (for the rosterer) that support further requirements that you might need in order to more fully specify such an application.
 - Create a minimal database schema (or equivalently, ORM model definitions) for the application. You could also demonstrate the effectiveness of your schema by writing a routine to read the sample data from the database.
 - Design a web API which could be used for communication between the web app's server and client.
