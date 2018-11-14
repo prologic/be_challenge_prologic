@@ -1,0 +1,6 @@
+*~*
+*.bak
+*.pyc
+*.pyo
+*.sqlite3
+__pycache__

@@ -1,40 +1,90 @@
-# Back End Developer Exercise
+# oncall
 
-The aim of this exercise is to simulate real working conditions to provide context for a code/design review session. The follow up review session will focus on your reasons for database/API design and pseudo-code/code implementation. As such it isn’t necessary to build a complete implementation, however having some runnable code is recommended (preferably in Python).
+oncall is an app that manages employee oncall shifts (rosters)  and ensures
+each shift worker has adequate time off and that shifts do not overlap or that
+an employee does not start a shift back-to-back.
 
-The suggested time to spend on this exercise is 2 hours.
+## Questions
 
-### Instructions
+1. Are breaks factored into the roster schedules? Or do emplyees take their
+   allocated break when it suits?
+2. What are the shift schedules per day? 7-3pm, 3pm-11pm, 11pm-7am? Does it
+   matter? Do you need flexible schedules?
+3. Do you need a minimum time between breaks or just a way to avoid
+    back-to-back shifts?
 
-For this challenge, we are looking for you to create the backend for a a simple rostering application for editing the shifts of employees. For example this application could be used for a small business that works 24/7 to manage the shifts of it's employees to make sure everyone gets adequate days off and doesn't get shifts which are directly back-to-back (eg working on a night shift followed by a morning shift the next day).
+## Assumptions
 
-We're providing you with two mock data csv files which are typical of the type of data collected:
+Some assumptions based on current requirements:
 
-- Employees: The people who are being rostered
-- Shifts: These are the bits of work assigned to employees.
+- Shifts start and end on the same day (//possibly extending into the night//)
+- Employees are "free-form" and there is no integration into Identity providers
 
-### Challenge
+## Limitations
 
-The amount of time you spend on this exercise is up to you, and there are several activities you could consider depending on your strengths:
+Currently the system does not support the following features at this time:
 
-- Develop some questions (for the rosterer) that support further requirements that you might need in order to more fully specify such an application.
-- Create a minimal database schema (or equivalently, ORM model definitions) for the application. You could also demonstrate the effectiveness of your schema by writing a routine to read the sample data from the database.
-- Design a web API which could be used for communication between the web app's server and client.
-- Describe and/or implement an algorithm which generates an allocation of staff to shifts.
+- Swapping shifts between employees (//e.g: an employee is sick//)
+- Detecting shift conflicts such as Employees on holidays/leaves.
+- Notifications and Reminders (//upcoming shifts, conflict warnings//)
+- Schedule configuration (//e.g: week-long shifts, 2 days shifts, etc//)
 
-If any of the requirements are unclear feel free to send through questions for clarification or make assumptions - we are not trying to test you on your knowledge of rostering.
+These are considerations for future development.
 
-### Deliverables
+## Building and Running
 
-What you deliver is up to you, some suggestions based on our current practices are:
+This assumes you have [Python 3](https://www.python.org/) already installed
+as well as [virtualenvwrapepr](https://virtualenvwrapper.readthedocs.io/en/latest/).
 
-- Python 3
-- Django
-- Postgresql
-- Pseudo-code
-- Diagrams (e.g. UML)
-- Notes on assumptions or next steps you would take
+If you don't you can easily set this up on macOS with [Homebrew](https://brew.sh):
 
-Please create your solution in a fork off this repo. When you're ready to share your solution with us, email a link to your recruiter or Biarri contact.
+```#!bash
+$ brew install python
+$ pip3 install virtualenvwrapper
+$ source $(which virtualenvwrapper.sh)
+```
 
-On completion, if there are additional things you think you could have done better/did not have enough time to complete, feel free to compile a quick list and bring it to the technical interview to help remind yourself during the discussion.
+Clone this repository:
+
+```#!bash
+$ git clone git@bitbucket.org:prologic/be_challenge.git
+$ cd be_challenge
+```
+
+Create a virtual environment to manage dependencies:
+
+```#!bash
+$ mkvirtualenv -p python3 roster
+```
+
+Install dependencies:
+
+```#!bash
+pip install -r requirements.txt
+```
+
+Run the mgirations:
+
+```#!bash
+$ cd oncall
+$ ./manage.py migrate
+```
+
+Run the development server:
+
+```#!bash
+$ ./manage.py runserver
+```
+
+## Running the Tests
+
+There is also an included test suite which can be run with [py.test](https://docs.pytest.org/en/latest/):
+
+```#!bash
+$ py.test
+```
+
+## License
+
+This work is licensed under the terms of the MIT License. See the `LICENSE`
+file in this repository for details.
