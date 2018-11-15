@@ -1,6 +1,6 @@
 # Schema Design
 
-The schema for the oncall rostering app is currently comprised of two models:
+The schema for the oncall roster app is currently comprised of two models:
 
 - `Employee` -- This holds the first and last name of each employee
 - `Shift`    -- This holds a row per shift with a reference to the employee
@@ -8,7 +8,7 @@ The schema for the oncall rostering app is currently comprised of two models:
 
 ## Example(s)
 
-### Createing records:
+### Creating records:
 
 ```#!python
 >>> from roster.models import Employee, Shift

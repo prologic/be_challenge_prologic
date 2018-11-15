@@ -6,7 +6,7 @@ an employee does not start a shift back-to-back.
 
 ## Questions
 
-1. Are breaks factored into the roster schedules? Or do emplyees take their
+1. Are breaks factored into the roster schedules? Or do employees take their
    allocated break when it suits?
 2. What are the shift schedules per day? 7-3pm, 3pm-11pm, 11pm-7am? Does it
    matter? Do you need flexible schedules?
@@ -63,7 +63,7 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Run the mgirations:
+Run the migrations:
 
 ```#!bash
 $ cd oncall
